@@ -5,9 +5,9 @@
 <transformation>
   <info>
     <name>数据抽取</name>
-    <description />
-    <extended_description />
-    <trans_version />
+    <description/>
+    <extended_description/>
+    <trans_version/>
     <trans_type>Normal</trans_type>
     <trans_status>0</trans_status>
     <directory>/</directory>
@@ -15,12 +15,12 @@
     </parameters>
     <log>
       <trans-log-table>
-        <connection />
-        <schema />
-        <table />
-        <size_limit_lines />
-        <interval />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <size_limit_lines/>
+        <interval/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -45,37 +45,37 @@
           <id>LINES_READ</id>
           <enabled>Y</enabled>
           <name>LINES_READ</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_WRITTEN</id>
           <enabled>Y</enabled>
           <name>LINES_WRITTEN</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_UPDATED</id>
           <enabled>Y</enabled>
           <name>LINES_UPDATED</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_OUTPUT</id>
           <enabled>Y</enabled>
           <name>LINES_OUTPUT</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_REJECTED</id>
           <enabled>Y</enabled>
           <name>LINES_REJECTED</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>ERRORS</id>
@@ -129,11 +129,11 @@
         </field>
       </trans-log-table>
       <perf-log-table>
-        <connection />
-        <schema />
-        <table />
-        <interval />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <interval/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -211,10 +211,10 @@
         </field>
       </perf-log-table>
       <channel-log-table>
-        <connection />
-        <schema />
-        <table />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -277,10 +277,10 @@
         </field>
       </channel-log-table>
       <step-log-table>
-        <connection />
-        <schema />
-        <table />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -353,10 +353,10 @@
         </field>
       </step-log-table>
       <metrics-log-table>
-        <connection />
-        <schema />
-        <table />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -405,9 +405,9 @@
       </metrics-log-table>
     </log>
     <maxdate>
-      <connection />
-      <table />
-      <field />
+      <connection/>
+      <table/>
+      <field/>
       <offset>0.0</offset>
       <maxdiff>0.0</maxdiff>
     </maxdate>
@@ -418,7 +418,7 @@
     <feedback_shown>Y</feedback_shown>
     <feedback_size>50000</feedback_size>
     <using_thread_priorities>Y</using_thread_priorities>
-    <shared_objects_file />
+    <shared_objects_file/>
     <capture_step_performance>N</capture_step_performance>
     <step_performance_capturing_delay>1000</step_performance_capturing_delay>
     <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
@@ -448,9 +448,9 @@
     <port>1521</port>
     <username>PHISDXH</username>
     <password>PHISDXH</password>
-    <servername />
-    <data_tablespace />
-    <index_tablespace />
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
     <attributes>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
@@ -499,9 +499,9 @@
     <port>1521</port>
     <username>PHISKF</username>
     <password>PHISKF</password>
-    <servername />
-    <data_tablespace />
-    <index_tablespace />
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
     <attributes>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
@@ -576,13 +576,13 @@
   <step>
     <name>Java 代码</name>
     <type>UserDefinedJavaClass</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <definitions>
       <definition>
@@ -756,10 +756,10 @@ public void initDic(Object[] r) throws KettleException{
     <fields>
     </fields>
     <clear_result_fields>N</clear_result_fields>
-    <info_steps />
-    <target_steps />
-    <usage_parameters />
-    <cluster_schema />
+    <info_steps/>
+    <target_steps/>
+    <usage_parameters/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -775,13 +775,13 @@ public void initDic(Object[] r) throws KettleException{
   <step>
     <name>字段选择</name>
     <type>SelectValues</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <fields>
       <select_unspecified>N</select_unspecified>
@@ -798,7 +798,7 @@ public void initDic(Object[] r) throws KettleException{
         <name>dn</name>
       </remove>
     </fields>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -814,23 +814,23 @@ public void initDic(Object[] r) throws KettleException{
   <step>
     <name>获取变量</name>
     <type>GetVariable</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <fields>
       <field>
         <name>tbn</name>
         <variable>${table_name}</variable>
         <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>both</trim_type>
@@ -839,10 +839,10 @@ public void initDic(Object[] r) throws KettleException{
         <name>url</name>
         <variable>${URL}</variable>
         <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>both</trim_type>
@@ -851,10 +851,10 @@ public void initDic(Object[] r) throws KettleException{
         <name>un</name>
         <variable>${UN}</variable>
         <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>both</trim_type>
@@ -863,10 +863,10 @@ public void initDic(Object[] r) throws KettleException{
         <name>pw</name>
         <variable>${PW}</variable>
         <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>both</trim_type>
@@ -875,16 +875,16 @@ public void initDic(Object[] r) throws KettleException{
         <name>dn</name>
         <variable>${DN}</variable>
         <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>both</trim_type>
       </field>
     </fields>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -900,22 +900,22 @@ public void initDic(Object[] r) throws KettleException{
   <step>
     <name>表输入</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>bsoft6</connection>
     <sql>select * from ${table_name}</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>Y</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -931,34 +931,34 @@ public void initDic(Object[] r) throws KettleException{
   <step>
     <name>表输出</name>
     <type>TableOutput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>bsofttset</connection>
-    <schema />
-    <table />
+    <schema/>
+    <table/>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
     <use_batch>Y</use_batch>
     <specify_fields>N</specify_fields>
     <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field />
+    <partitioning_field/>
     <partitioning_daily>N</partitioning_daily>
     <partitioning_monthly>Y</partitioning_monthly>
     <tablename_in_field>Y</tablename_in_field>
     <tablename_field>tbn</tablename_field>
     <tablename_in_table>N</tablename_in_table>
     <return_keys>N</return_keys>
-    <return_field />
+    <return_field/>
     <fields>
     </fields>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -974,15 +974,15 @@ public void initDic(Object[] r) throws KettleException{
   <step_error_handling>
     <error>
       <source_step>Java 代码</source_step>
-      <target_step />
+      <target_step/>
       <is_enabled>Y</is_enabled>
-      <nr_valuename />
-      <descriptions_valuename />
-      <fields_valuename />
-      <codes_valuename />
-      <max_errors />
-      <max_pct_errors />
-      <min_pct_rows />
+      <nr_valuename/>
+      <descriptions_valuename/>
+      <fields_valuename/>
+      <codes_valuename/>
+      <max_errors/>
+      <max_pct_errors/>
+      <min_pct_rows/>
     </error>
   </step_error_handling>
   <slave-step-copy-partition-distribution>
@@ -993,9 +993,9 @@ public void initDic(Object[] r) throws KettleException{
 <transformation>
   <info>
     <name>获取数据抽取表并设置到结果</name>
-    <description />
-    <extended_description />
-    <trans_version />
+    <description/>
+    <extended_description/>
+    <trans_version/>
     <trans_type>Normal</trans_type>
     <trans_status>0</trans_status>
     <directory>/</directory>
@@ -1003,12 +1003,12 @@ public void initDic(Object[] r) throws KettleException{
     </parameters>
     <log>
       <trans-log-table>
-        <connection />
-        <schema />
-        <table />
-        <size_limit_lines />
-        <interval />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <size_limit_lines/>
+        <interval/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -1033,37 +1033,37 @@ public void initDic(Object[] r) throws KettleException{
           <id>LINES_READ</id>
           <enabled>Y</enabled>
           <name>LINES_READ</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_WRITTEN</id>
           <enabled>Y</enabled>
           <name>LINES_WRITTEN</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_UPDATED</id>
           <enabled>Y</enabled>
           <name>LINES_UPDATED</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_OUTPUT</id>
           <enabled>Y</enabled>
           <name>LINES_OUTPUT</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_REJECTED</id>
           <enabled>Y</enabled>
           <name>LINES_REJECTED</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>ERRORS</id>
@@ -1117,11 +1117,11 @@ public void initDic(Object[] r) throws KettleException{
         </field>
       </trans-log-table>
       <perf-log-table>
-        <connection />
-        <schema />
-        <table />
-        <interval />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <interval/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -1199,10 +1199,10 @@ public void initDic(Object[] r) throws KettleException{
         </field>
       </perf-log-table>
       <channel-log-table>
-        <connection />
-        <schema />
-        <table />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -1265,10 +1265,10 @@ public void initDic(Object[] r) throws KettleException{
         </field>
       </channel-log-table>
       <step-log-table>
-        <connection />
-        <schema />
-        <table />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -1341,10 +1341,10 @@ public void initDic(Object[] r) throws KettleException{
         </field>
       </step-log-table>
       <metrics-log-table>
-        <connection />
-        <schema />
-        <table />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -1393,9 +1393,9 @@ public void initDic(Object[] r) throws KettleException{
       </metrics-log-table>
     </log>
     <maxdate>
-      <connection />
-      <table />
-      <field />
+      <connection/>
+      <table/>
+      <field/>
       <offset>0.0</offset>
       <maxdiff>0.0</maxdiff>
     </maxdate>
@@ -1406,7 +1406,7 @@ public void initDic(Object[] r) throws KettleException{
     <feedback_shown>Y</feedback_shown>
     <feedback_size>50000</feedback_size>
     <using_thread_priorities>Y</using_thread_priorities>
-    <shared_objects_file />
+    <shared_objects_file/>
     <capture_step_performance>N</capture_step_performance>
     <step_performance_capturing_delay>1000</step_performance_capturing_delay>
     <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
@@ -1435,10 +1435,10 @@ public void initDic(Object[] r) throws KettleException{
     <database>orcl</database>
     <port>1521</port>
     <username>PHISDXH</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb298659edb697f2</password>
-    <servername />
-    <data_tablespace />
-    <index_tablespace />
+    <password>PHISDXH</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
     <attributes>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
@@ -1488,15 +1488,15 @@ public void initDic(Object[] r) throws KettleException{
   <step>
     <name>复制记录到结果</name>
     <type>RowsToResult</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1512,22 +1512,22 @@ public void initDic(Object[] r) throws KettleException{
   <step>
     <name>获取数据抽取表</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>bsoft6</connection>
     <sql>select * from Data_Extraction</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1550,9 +1550,9 @@ public void initDic(Object[] r) throws KettleException{
 <transformation>
   <info>
     <name>设置变量</name>
-    <description />
-    <extended_description />
-    <trans_version />
+    <description/>
+    <extended_description/>
+    <trans_version/>
     <trans_type>Normal</trans_type>
     <trans_status>0</trans_status>
     <directory>/</directory>
@@ -1560,12 +1560,12 @@ public void initDic(Object[] r) throws KettleException{
     </parameters>
     <log>
       <trans-log-table>
-        <connection />
-        <schema />
-        <table />
-        <size_limit_lines />
-        <interval />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <size_limit_lines/>
+        <interval/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -1590,37 +1590,37 @@ public void initDic(Object[] r) throws KettleException{
           <id>LINES_READ</id>
           <enabled>Y</enabled>
           <name>LINES_READ</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_WRITTEN</id>
           <enabled>Y</enabled>
           <name>LINES_WRITTEN</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_UPDATED</id>
           <enabled>Y</enabled>
           <name>LINES_UPDATED</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_OUTPUT</id>
           <enabled>Y</enabled>
           <name>LINES_OUTPUT</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_REJECTED</id>
           <enabled>Y</enabled>
           <name>LINES_REJECTED</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>ERRORS</id>
@@ -1674,11 +1674,11 @@ public void initDic(Object[] r) throws KettleException{
         </field>
       </trans-log-table>
       <perf-log-table>
-        <connection />
-        <schema />
-        <table />
-        <interval />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <interval/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -1756,10 +1756,10 @@ public void initDic(Object[] r) throws KettleException{
         </field>
       </perf-log-table>
       <channel-log-table>
-        <connection />
-        <schema />
-        <table />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -1822,10 +1822,10 @@ public void initDic(Object[] r) throws KettleException{
         </field>
       </channel-log-table>
       <step-log-table>
-        <connection />
-        <schema />
-        <table />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -1898,10 +1898,10 @@ public void initDic(Object[] r) throws KettleException{
         </field>
       </step-log-table>
       <metrics-log-table>
-        <connection />
-        <schema />
-        <table />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -1950,9 +1950,9 @@ public void initDic(Object[] r) throws KettleException{
       </metrics-log-table>
     </log>
     <maxdate>
-      <connection />
-      <table />
-      <field />
+      <connection/>
+      <table/>
+      <field/>
       <offset>0.0</offset>
       <maxdiff>0.0</maxdiff>
     </maxdate>
@@ -1963,7 +1963,7 @@ public void initDic(Object[] r) throws KettleException{
     <feedback_shown>Y</feedback_shown>
     <feedback_size>50000</feedback_size>
     <using_thread_priorities>Y</using_thread_priorities>
-    <shared_objects_file />
+    <shared_objects_file/>
     <capture_step_performance>N</capture_step_performance>
     <step_performance_capturing_delay>1000</step_performance_capturing_delay>
     <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
@@ -1992,10 +1992,10 @@ public void initDic(Object[] r) throws KettleException{
     <database>orcl</database>
     <port>1521</port>
     <username>PHISDXH</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb298659edb697f2</password>
-    <servername />
-    <data_tablespace />
-    <index_tablespace />
+    <password>PHISDXH</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
     <attributes>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
@@ -2045,13 +2045,13 @@ public void initDic(Object[] r) throws KettleException{
   <step>
     <name>从结果获取记录</name>
     <type>RowsFromResult</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <fields>
       <field>
@@ -2061,7 +2061,7 @@ public void initDic(Object[] r) throws KettleException{
         <precision>-1</precision>
       </field>
     </fields>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2077,24 +2077,24 @@ public void initDic(Object[] r) throws KettleException{
   <step>
     <name>设置变量</name>
     <type>SetVariable</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <fields>
       <field>
         <field_name>TABLENAME</field_name>
         <variable_name>table_name</variable_name>
         <variable_type>ROOT_JOB</variable_type>
-        <default_value />
+        <default_value/>
       </field>
     </fields>
     <use_formatting>Y</use_formatting>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2117,9 +2117,9 @@ public void initDic(Object[] r) throws KettleException{
 <transformation>
   <info>
     <name>设置数据库配置变量</name>
-    <description />
-    <extended_description />
-    <trans_version />
+    <description/>
+    <extended_description/>
+    <trans_version/>
     <trans_type>Normal</trans_type>
     <trans_status>0</trans_status>
     <directory>/</directory>
@@ -2127,12 +2127,12 @@ public void initDic(Object[] r) throws KettleException{
     </parameters>
     <log>
       <trans-log-table>
-        <connection />
-        <schema />
-        <table />
-        <size_limit_lines />
-        <interval />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <size_limit_lines/>
+        <interval/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -2157,37 +2157,37 @@ public void initDic(Object[] r) throws KettleException{
           <id>LINES_READ</id>
           <enabled>Y</enabled>
           <name>LINES_READ</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_WRITTEN</id>
           <enabled>Y</enabled>
           <name>LINES_WRITTEN</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_UPDATED</id>
           <enabled>Y</enabled>
           <name>LINES_UPDATED</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_OUTPUT</id>
           <enabled>Y</enabled>
           <name>LINES_OUTPUT</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_REJECTED</id>
           <enabled>Y</enabled>
           <name>LINES_REJECTED</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>ERRORS</id>
@@ -2241,11 +2241,11 @@ public void initDic(Object[] r) throws KettleException{
         </field>
       </trans-log-table>
       <perf-log-table>
-        <connection />
-        <schema />
-        <table />
-        <interval />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <interval/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -2323,10 +2323,10 @@ public void initDic(Object[] r) throws KettleException{
         </field>
       </perf-log-table>
       <channel-log-table>
-        <connection />
-        <schema />
-        <table />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -2389,10 +2389,10 @@ public void initDic(Object[] r) throws KettleException{
         </field>
       </channel-log-table>
       <step-log-table>
-        <connection />
-        <schema />
-        <table />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -2465,10 +2465,10 @@ public void initDic(Object[] r) throws KettleException{
         </field>
       </step-log-table>
       <metrics-log-table>
-        <connection />
-        <schema />
-        <table />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -2517,9 +2517,9 @@ public void initDic(Object[] r) throws KettleException{
       </metrics-log-table>
     </log>
     <maxdate>
-      <connection />
-      <table />
-      <field />
+      <connection/>
+      <table/>
+      <field/>
       <offset>0.0</offset>
       <maxdiff>0.0</maxdiff>
     </maxdate>
@@ -2530,7 +2530,7 @@ public void initDic(Object[] r) throws KettleException{
     <feedback_shown>Y</feedback_shown>
     <feedback_size>50000</feedback_size>
     <using_thread_priorities>Y</using_thread_priorities>
-    <shared_objects_file />
+    <shared_objects_file/>
     <capture_step_performance>N</capture_step_performance>
     <step_performance_capturing_delay>1000</step_performance_capturing_delay>
     <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
@@ -2561,26 +2561,26 @@ public void initDic(Object[] r) throws KettleException{
   <step>
     <name>Yaml 输入</name>
     <type>YamlInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <include>N</include>
-    <include_field />
+    <include_field/>
     <rownum>N</rownum>
     <addresultfile>N</addresultfile>
     <validating>N</validating>
     <IsIgnoreEmptyFile>N</IsIgnoreEmptyFile>
     <doNotFailIfNoFile>Y</doNotFailIfNoFile>
-    <rownum_field />
-    <encoding />
+    <rownum_field/>
+    <encoding/>
     <file>
       <name>/Users/liuming/work/kettlebat/oracle.yaml</name>
-      <filemask />
+      <filemask/>
       <file_required>N</file_required>
       <include_subfolders>N</include_subfolders>
     </file>
@@ -2589,10 +2589,10 @@ public void initDic(Object[] r) throws KettleException{
         <name>url</name>
         <path>url</path>
         <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -2601,10 +2601,10 @@ public void initDic(Object[] r) throws KettleException{
         <name>un</name>
         <path>un</path>
         <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -2613,10 +2613,10 @@ public void initDic(Object[] r) throws KettleException{
         <name>pw</name>
         <path>pw</path>
         <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -2625,10 +2625,10 @@ public void initDic(Object[] r) throws KettleException{
         <name>dn</name>
         <path>dn</path>
         <type>String</type>
-        <format />
-        <currency />
-        <decimal />
-        <group />
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
         <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
@@ -2637,8 +2637,8 @@ public void initDic(Object[] r) throws KettleException{
     <limit>0</limit>
     <IsInFields>N</IsInFields>
     <IsAFile>N</IsAFile>
-    <YamlField />
-    <cluster_schema />
+    <YamlField/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2654,42 +2654,42 @@ public void initDic(Object[] r) throws KettleException{
   <step>
     <name>设置变量</name>
     <type>SetVariable</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <fields>
       <field>
         <field_name>url</field_name>
         <variable_name>URL</variable_name>
         <variable_type>ROOT_JOB</variable_type>
-        <default_value />
+        <default_value/>
       </field>
       <field>
         <field_name>un</field_name>
         <variable_name>UN</variable_name>
         <variable_type>ROOT_JOB</variable_type>
-        <default_value />
+        <default_value/>
       </field>
       <field>
         <field_name>pw</field_name>
         <variable_name>PW</variable_name>
         <variable_type>ROOT_JOB</variable_type>
-        <default_value />
+        <default_value/>
       </field>
       <field>
         <field_name>dn</field_name>
         <variable_name>DN</variable_name>
         <variable_type>ROOT_JOB</variable_type>
-        <default_value />
+        <default_value/>
       </field>
     </fields>
     <use_formatting>Y</use_formatting>
-    <cluster_schema />
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2713,9 +2713,9 @@ public void initDic(Object[] r) throws KettleException{
 <jobs>
 <job>
   <name>dataupdate</name>
-  <description />
-  <extended_description />
-  <job_version />
+  <description/>
+  <extended_description/>
+  <job_version/>
   <job_status>0</job_status>
   <directory>/</directory>
   <created_user>-</created_user>
@@ -2732,10 +2732,10 @@ public void initDic(Object[] r) throws KettleException{
     <database>orcl</database>
     <port>1521</port>
     <username>PHISDXH</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb298659edb697f2</password>
-    <servername />
-    <data_tablespace />
-    <index_tablespace />
+    <password>PHISDXH</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
     <attributes>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
@@ -2778,12 +2778,12 @@ public void initDic(Object[] r) throws KettleException{
   <slaveservers>
     </slaveservers>
   <job-log-table>
-    <connection />
-    <schema />
-    <table />
-    <size_limit_lines />
-    <interval />
-    <timeout_days />
+    <connection/>
+    <schema/>
+    <table/>
+    <size_limit_lines/>
+    <interval/>
+    <timeout_days/>
     <field>
       <id>ID_JOB</id>
       <enabled>Y</enabled>
@@ -2891,10 +2891,10 @@ public void initDic(Object[] r) throws KettleException{
     </field>
   </job-log-table>
   <jobentry-log-table>
-    <connection />
-    <schema />
-    <table />
-    <timeout_days />
+    <connection/>
+    <schema/>
+    <table/>
+    <timeout_days/>
     <field>
       <id>ID_BATCH</id>
       <enabled>Y</enabled>
@@ -2982,10 +2982,10 @@ public void initDic(Object[] r) throws KettleException{
     </field>
   </jobentry-log-table>
   <channel-log-table>
-    <connection />
-    <schema />
-    <table />
-    <timeout_days />
+    <connection/>
+    <schema/>
+    <table/>
+    <timeout_days/>
     <field>
       <id>ID_BATCH</id>
       <enabled>Y</enabled>
@@ -3048,11 +3048,11 @@ public void initDic(Object[] r) throws KettleException{
     </field>
   </channel-log-table>
   <pass_batchid>N</pass_batchid>
-  <shared_objects_file />
+  <shared_objects_file/>
   <entries>
     <entry>
       <name>START</name>
-      <description />
+      <description/>
       <type>SPECIAL</type>
       <start>Y</start>
       <dummy>N</dummy>
@@ -3072,7 +3072,7 @@ public void initDic(Object[] r) throws KettleException{
     </entry>
     <entry>
       <name>成功</name>
-      <description />
+      <description/>
       <type>SUCCESS</type>
       <parallel>N</parallel>
       <draw>Y</draw>
@@ -3082,11 +3082,11 @@ public void initDic(Object[] r) throws KettleException{
     </entry>
     <entry>
       <name>获取数据抽取表并设置到结果</name>
-      <description />
+      <description/>
       <type>TRANS</type>
       <specification_method>rep_name</specification_method>
-      <trans_object_id />
-      <filename />
+      <trans_object_id/>
+      <filename/>
       <transname>获取数据抽取表并设置到结果</transname>
       <directory>/</directory>
       <arg_from_previous>N</arg_from_previous>
@@ -3101,7 +3101,7 @@ public void initDic(Object[] r) throws KettleException{
       <add_time>N</add_time>
       <loglevel>Rowlevel</loglevel>
       <cluster>N</cluster>
-      <slave_server_name />
+      <slave_server_name/>
       <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
@@ -3119,23 +3119,23 @@ public void initDic(Object[] r) throws KettleException{
     </entry>
     <entry>
       <name>数据抽取转换作业</name>
-      <description />
+      <description/>
       <type>JOB</type>
       <specification_method>rep_name</specification_method>
-      <job_object_id />
-      <filename />
+      <job_object_id/>
+      <filename/>
       <jobname>数据抽取转换作业</jobname>
       <directory>/</directory>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>Y</exec_per_row>
       <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
+      <logfile/>
+      <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
       <loglevel>Nothing</loglevel>
-      <slave_server_name />
+      <slave_server_name/>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
       <expand_remote_job>N</expand_remote_job>
@@ -3203,9 +3203,9 @@ public void initDic(Object[] r) throws KettleException{
 
 <job>
   <name>数据抽取转换作业</name>
-  <description />
-  <extended_description />
-  <job_version />
+  <description/>
+  <extended_description/>
+  <job_version/>
   <job_status>0</job_status>
   <directory>/</directory>
   <created_user>-</created_user>
@@ -3222,10 +3222,10 @@ public void initDic(Object[] r) throws KettleException{
     <database>orcl</database>
     <port>1521</port>
     <username>PHISDXH</username>
-    <password>Encrypted 2be98afc86aa7f2e4cb298659edb697f2</password>
-    <servername />
-    <data_tablespace />
-    <index_tablespace />
+    <password>PHISDXH</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
     <attributes>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
@@ -3268,12 +3268,12 @@ public void initDic(Object[] r) throws KettleException{
   <slaveservers>
     </slaveservers>
   <job-log-table>
-    <connection />
-    <schema />
-    <table />
-    <size_limit_lines />
-    <interval />
-    <timeout_days />
+    <connection/>
+    <schema/>
+    <table/>
+    <size_limit_lines/>
+    <interval/>
+    <timeout_days/>
     <field>
       <id>ID_JOB</id>
       <enabled>Y</enabled>
@@ -3381,10 +3381,10 @@ public void initDic(Object[] r) throws KettleException{
     </field>
   </job-log-table>
   <jobentry-log-table>
-    <connection />
-    <schema />
-    <table />
-    <timeout_days />
+    <connection/>
+    <schema/>
+    <table/>
+    <timeout_days/>
     <field>
       <id>ID_BATCH</id>
       <enabled>Y</enabled>
@@ -3472,10 +3472,10 @@ public void initDic(Object[] r) throws KettleException{
     </field>
   </jobentry-log-table>
   <channel-log-table>
-    <connection />
-    <schema />
-    <table />
-    <timeout_days />
+    <connection/>
+    <schema/>
+    <table/>
+    <timeout_days/>
     <field>
       <id>ID_BATCH</id>
       <enabled>Y</enabled>
@@ -3538,11 +3538,11 @@ public void initDic(Object[] r) throws KettleException{
     </field>
   </channel-log-table>
   <pass_batchid>N</pass_batchid>
-  <shared_objects_file />
+  <shared_objects_file/>
   <entries>
     <entry>
       <name>START</name>
-      <description />
+      <description/>
       <type>SPECIAL</type>
       <start>Y</start>
       <dummy>N</dummy>
@@ -3562,7 +3562,7 @@ public void initDic(Object[] r) throws KettleException{
     </entry>
     <entry>
       <name>成功</name>
-      <description />
+      <description/>
       <type>SUCCESS</type>
       <parallel>N</parallel>
       <draw>Y</draw>
@@ -3572,11 +3572,11 @@ public void initDic(Object[] r) throws KettleException{
     </entry>
     <entry>
       <name>设置表名变量</name>
-      <description />
+      <description/>
       <type>TRANS</type>
       <specification_method>rep_name</specification_method>
-      <trans_object_id />
-      <filename />
+      <trans_object_id/>
+      <filename/>
       <transname>设置变量</transname>
       <directory>/</directory>
       <arg_from_previous>N</arg_from_previous>
@@ -3585,13 +3585,13 @@ public void initDic(Object[] r) throws KettleException{
       <clear_rows>N</clear_rows>
       <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
+      <logfile/>
+      <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
       <loglevel>Basic</loglevel>
       <cluster>N</cluster>
-      <slave_server_name />
+      <slave_server_name/>
       <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
@@ -3609,11 +3609,11 @@ public void initDic(Object[] r) throws KettleException{
     </entry>
     <entry>
       <name>数据抽取</name>
-      <description />
+      <description/>
       <type>TRANS</type>
       <specification_method>rep_name</specification_method>
-      <trans_object_id />
-      <filename />
+      <trans_object_id/>
+      <filename/>
       <transname>数据抽取</transname>
       <directory>/</directory>
       <arg_from_previous>N</arg_from_previous>
@@ -3628,7 +3628,7 @@ public void initDic(Object[] r) throws KettleException{
       <add_time>N</add_time>
       <loglevel>Rowlevel</loglevel>
       <cluster>N</cluster>
-      <slave_server_name />
+      <slave_server_name/>
       <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>
@@ -3646,11 +3646,11 @@ public void initDic(Object[] r) throws KettleException{
     </entry>
     <entry>
       <name>设置数据库配置变量</name>
-      <description />
+      <description/>
       <type>TRANS</type>
       <specification_method>rep_name</specification_method>
-      <trans_object_id />
-      <filename />
+      <trans_object_id/>
+      <filename/>
       <transname>设置数据库配置变量</transname>
       <directory>${Internal.Entry.Current.Directory}</directory>
       <arg_from_previous>N</arg_from_previous>
@@ -3659,13 +3659,13 @@ public void initDic(Object[] r) throws KettleException{
       <clear_rows>N</clear_rows>
       <clear_files>N</clear_files>
       <set_logfile>N</set_logfile>
-      <logfile />
-      <logext />
+      <logfile/>
+      <logext/>
       <add_date>N</add_date>
       <add_time>N</add_time>
       <loglevel>Basic</loglevel>
       <cluster>N</cluster>
-      <slave_server_name />
+      <slave_server_name/>
       <set_append_logfile>N</set_append_logfile>
       <wait_until_finished>Y</wait_until_finished>
       <follow_abort_remote>N</follow_abort_remote>

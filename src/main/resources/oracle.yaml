@@ -1,0 +1,17 @@
+kettle:
+  filerepository:
+    path: src/main/resources
+    id: dateUpgrade
+    name: dateUpgrade
+    description: kettle文件类型资源库
+    fileName: dataUpdate.xml
+oldDataSource:
+  url: jdbc:oracle:thin:@10.10.22.208:1521/orcl
+  un: PHISDXH
+  pw: PHISDXH
+  dn: oracle.jdbc.driver.OracleDriver
+newDataSource:
+  url: jdbc:oracle:thin:@10.10.22.208:1521/orcl
+  un: PHISKF
+  pw: PHISKF
+  dn: oracle.jdbc.driver.OracleDriver
