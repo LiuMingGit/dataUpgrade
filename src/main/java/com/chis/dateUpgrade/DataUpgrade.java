@@ -59,7 +59,8 @@ public class DataUpgrade {
         } catch (KettleException e) {
             e.printStackTrace();
         }*/
-        doWork();
+       getProperties();
+        editDataSource();
     }
 
     /**
@@ -146,16 +147,20 @@ public class DataUpgrade {
     }
 
     private static void editDataSource() throws DocumentException {
-        Document document = new SAXReader().read(new File("src/main/resources/"+KETTLE_FILENAME));
+        File file = new File("src/main/resources/"+KETTLE_FILENAME);
+        Document document = new SAXReader().read(file);
         List<Element> transformations = document.getRootElement().element("transformations").elements("transformation");
         for (Element transformation : transformations) {
+            //修改kettle读取配置文件位置
+            if("设置数据库配置变量".equals(transformation.element("info").element("name").getText())){
+                transformation.element("step").element("file").element("name").setText(file.getParentFile().getAbsolutePath()+"/oraacle.yaml");
+            }
             editDataSource(transformation);
         }
         List<Element> jobs = document.getRootElement().element("jobs").elements("job");
         for (Element job : jobs) {
             editDataSource(job);
         }
-        File file = new File("src/main/resources/"+KETTLE_FILENAME);
         FileOutputStream fileOutputStream = null;
         try {
             fileOutputStream = new FileOutputStream(file);
