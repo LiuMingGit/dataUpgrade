@@ -441,12 +441,12 @@
   </notepads>
   <connection>
     <name>newDataSource</name>
-    <server>10.10.22.208</server>
+    <server>ip</server>
     <type>ORACLE</type>
     <access>Native</access>
-    <database>orcl</database>
-    <port>1521</port>
-    <username>PHISKF</username>
+    <database>实例名</database>
+    <port>端口号</port>
+    <username>用户名</username>
     <password>Encrypted 2be98afc86aa7f2e4cb799e58f7a184fc</password>
     <servername />
     <data_tablespace />
@@ -466,7 +466,7 @@
       </attribute>
       <attribute>
         <code>PORT_NUMBER</code>
-        <attribute>1521</attribute>
+        <attribute>端口号</attribute>
       </attribute>
       <attribute>
         <code>PRESERVE_RESERVED_WORD_CASE</code>
@@ -492,12 +492,12 @@
   </connection>
   <connection>
     <name>oldDataSource</name>
-    <server>10.10.22.208</server>
+    <server>ip</server>
     <type>ORACLE</type>
     <access>Native</access>
-    <database>orcl</database>
-    <port>1521</port>
-    <username>PHISDXH</username>
+    <database>实例名</database>
+    <port>端口号</port>
+    <username>用户名</username>
     <password>Encrypted 2be98afc86aa7f2e4cb298659edb697f2</password>
     <servername />
     <data_tablespace />
@@ -517,7 +517,7 @@
       </attribute>
       <attribute>
         <code>PORT_NUMBER</code>
-        <attribute>1521</attribute>
+        <attribute>端口号</attribute>
       </attribute>
       <attribute>
         <code>PRESERVE_RESERVED_WORD_CASE</code>
@@ -1429,12 +1429,12 @@ public void initDic(Object[] r) throws KettleException{
   </notepads>
   <connection>
     <name>oldDataSource</name>
-    <server>10.10.22.208</server>
+    <server>ip</server>
     <type>ORACLE</type>
     <access>Native</access>
-    <database>orcl</database>
-    <port>1521</port>
-    <username>PHISDXH</username>
+    <database>实例名</database>
+    <port>端口号</port>
+    <username>用户名</username>
     <password>Encrypted 2be98afc86aa7f2e4cb298659edb697f2</password>
     <servername />
     <data_tablespace />
@@ -1454,7 +1454,7 @@ public void initDic(Object[] r) throws KettleException{
       </attribute>
       <attribute>
         <code>PORT_NUMBER</code>
-        <attribute>1521</attribute>
+        <attribute>端口号</attribute>
       </attribute>
       <attribute>
         <code>PRESERVE_RESERVED_WORD_CASE</code>
@@ -2530,7 +2530,6 @@ public void initDic(Object[] r) throws KettleException{
         <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
         <jsScript_script>//Script here
-//{url:  jdbc:oracle:thin:@10.10.22.208:1521/orcl,un:  PHISDXH,pw:  PHISDXH,dn:  oracle.jdbc.driver.OracleDriver}
 var un = oldDataSource.substring(oldDataSource.indexOf("un:")+3,oldDataSource.indexOf("pw:")-1).replace(/^\s*|\s*$/g, "");
 var url = oldDataSource.substring(oldDataSource.indexOf("url:")+4,oldDataSource.indexOf("un:")-1).replace(/^\s*|\s*$/g, "");
 var pw = oldDataSource.substring(oldDataSource.indexOf("pw:")+3,oldDataSource.indexOf("dn:")-1).replace(/^\s*|\s*$/g, "");

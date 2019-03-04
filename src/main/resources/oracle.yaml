@@ -12,16 +12,16 @@ kettle:
 # 来源库数据源配置
 oldDataSource:
   # 数据源地址
-  url: jdbc:oracle:thin:@10.10.22.208:1521/orcl
+  url: jdbc:oracle:thin:@ip:端口号/数据库实例名
   # 数据源用户名
-  un: PHISDXH
+  un: 用户名
   # 数据源密码
-  pw: PHISDXH
+  pw: 密码
   # 数据源使用驱动
   dn: oracle.jdbc.driver.OracleDriver
 # 目标库数据源配置
 newDataSource:
-  url: jdbc:oracle:thin:@10.10.22.208:1521/orcl
-  un: PHISKF
-  pw: PHISKF
+  url: jdbc:oracle:thin:@ip:端口号/数据库实例名
+  un: 用户名
+  pw: 密码
   dn: oracle.jdbc.driver.OracleDriver

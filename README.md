@@ -8,7 +8,7 @@
     3. 新老字典对照表：标识字典名、老字典值、新字典值的对应关系
         1. ![dic_dic](http://wx2.sinaimg.cn/mw690/0060lm7Tly1g0qpga94ehj30es08s3yo.jpg "新老字典对照表")
 * 修改oracle.yaml配置文件已应对自身环境
-     1. ![oracle.yaml](http://wx4.sinaimg.cn/mw690/0060lm7Tly1g0qpsgb4v0j30kg0n80we.jpg "工具配置文件")
+     1. ![oracle.yaml](http://wx2.sinaimg.cn/mw690/0060lm7Tly1g0qqmjwm24j30ka0mm42b.jpg "工具配置文件")
 * 运行
 ```
     //实例化脚本执行类
