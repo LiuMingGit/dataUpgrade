@@ -1,8 +1,6 @@
 # kettle 资源库相关配置
 kettle:
   filerepository:
-    # 资源库地址
-    path: src/main/resources
     # 资源库id
     id: dateUpgrade
     # 资源库名字

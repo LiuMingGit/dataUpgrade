@@ -1,4 +1,4 @@
-package com.chis.dateUpgrade;
+package com.chis.util;
 /**
  * 日期：2019年03月01日
  * 作者：刘铭
@@ -6,7 +6,8 @@ package com.chis.dateUpgrade;
  */
 
 import org.yaml.snakeyaml.Yaml;
-import java.io.InputStream;
+
+import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -39,7 +40,11 @@ public class YamlReader {
         }catch (Exception e){
             throw new IllegalStateException("yaml读取器初始化异常");
         }finally {
-
+            try {
+                inputStream.close();
+            } catch (IOException e) {
+                throw new IllegalStateException("yaml读取器初始化异常");
+            }
         }
     }
 
