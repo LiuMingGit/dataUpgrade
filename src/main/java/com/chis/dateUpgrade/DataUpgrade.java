@@ -1,6 +1,14 @@
 package com.chis.dateUpgrade;
 
-import com.chis.util.YamlReader;
+/**
+ * 日期：2019年03月01日
+ * 作者：刘铭
+ * 邮箱：liuming@bsoft.com.cn
+ */
+
+import com.chis.pojo.Progress;
+import com.chis.quartz.ProgressSchedule;
+import com.chis.util.ParameterUtil;
 import org.apache.log4j.Logger;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
@@ -8,6 +16,7 @@ import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
 import org.pentaho.di.core.KettleEnvironment;
+import org.pentaho.di.core.RowMetaAndData;
 import org.pentaho.di.core.exception.KettleException;
 import org.pentaho.di.core.util.EnvUtil;
 import org.pentaho.di.job.Job;
@@ -15,17 +24,14 @@ import org.pentaho.di.job.JobMeta;
 import org.pentaho.di.repository.IRepositoryImporter;
 import org.pentaho.di.repository.filerep.KettleFileRepository;
 import org.pentaho.di.repository.filerep.KettleFileRepositoryMeta;
+import org.quartz.JobKey;
+import org.quartz.Scheduler;
+import org.quartz.SchedulerException;
 
 import java.io.*;
-import java.util.HashMap;
+import java.sql.*;
 import java.util.List;
 
-
-/**
- * 日期：2019年03月01日
- * 作者：刘铭
- * 邮箱：liuming@bsoft.com.cn
- */
 
 /**
  * kettle执行主类
@@ -33,88 +39,38 @@ import java.util.List;
 public class DataUpgrade {
     private static Logger logger = Logger.getLogger(DataUpgrade.class);
 
-    //kettle 资源库配置
-    private String KETTLE_PATH;
-    private String KETTLE_ID;
-    private String KETTLE_NAME;
-    private String KETTLE_DESCRIPTION;
-    private String KETTLE_FILENAME;
-
-    //老数据源配置  
-    private String OLDDATASOURCE_SERVER;
-    private String OLDDATASOURCE_DATABASE;
-    private String OLDDATASOURCE_PORT;
-    private String OLDDATASOURCE_USERNAME;
-    private String OLDDATASOURCE_PASSWORD;
-
-    //新数据源配置
-    private String NEWDATASOURCE_SERVER;
-    private String NEWDATASOURCE_DATABASE;
-    private String NEWDATASOURCE_PORT;
-    private String NEWDATASOURCE_USERNAME;
-    private String NEWDATASOURCE_PASSWORD;
-
-
     public static void main(String[] args) throws DocumentException, KettleException {
         DataUpgrade dataUpgrade = new DataUpgrade();
         dataUpgrade.doWork();
     }
-
-    /**
-     * 读取配置文件
-     */
-    @SuppressWarnings("Duplicates")
-    private void getProperties() {
-        YamlReader reader = YamlReader.getInstance();
-        HashMap filerepository = (HashMap) reader.getValuebyKey("kettle", "filerepository");
-        KETTLE_PATH = DataUpgrade.class.getClassLoader().getResource("").getPath();
-        KETTLE_ID = (String) filerepository.get("id");
-        KETTLE_NAME = (String) filerepository.get("name");
-        KETTLE_DESCRIPTION = (String) filerepository.get("description");
-        KETTLE_FILENAME = (String) filerepository.get("fileName");
-        String old_url = (String) reader.getValuebyKey("oldDataSource", "url");
-        String new_url = (String) reader.getValuebyKey("newDataSource", "url");
-        OLDDATASOURCE_SERVER = old_url.substring(old_url.lastIndexOf("@") + 1, old_url.lastIndexOf(":"));
-        OLDDATASOURCE_DATABASE = old_url.substring(old_url.lastIndexOf("/") + 1);
-        OLDDATASOURCE_PORT = old_url.substring(old_url.lastIndexOf(":") + 1, old_url.lastIndexOf("/"));
-        OLDDATASOURCE_USERNAME = (String) reader.getValuebyKey("oldDataSource", "un");
-        OLDDATASOURCE_PASSWORD = (String) reader.getValuebyKey("oldDataSource", "pw");
-
-        NEWDATASOURCE_SERVER = new_url.substring(new_url.lastIndexOf("@") + 1, new_url.lastIndexOf(":"));
-        NEWDATASOURCE_DATABASE = new_url.substring(new_url.lastIndexOf("/") + 1);
-        NEWDATASOURCE_PORT = new_url.substring(new_url.lastIndexOf(":") + 1, new_url.lastIndexOf("/"));
-        NEWDATASOURCE_USERNAME = (String) reader.getValuebyKey("newDataSource", "un");
-        NEWDATASOURCE_PASSWORD = (String) reader.getValuebyKey("newDataSource", "pw");
-    }
-
+    
 
     /**
      * 配置kettle文件库资源库环境
      **/
     private KettleFileRepository fileRepositoryCon() throws KettleException {
-        getProperties();
         String msg;
         //初始化
         EnvUtil.environmentInit();
         KettleEnvironment.init();
         //检测文件夹是否存在
-        File file = new File(KETTLE_PATH+"/"+KETTLE_NAME);
+        File file = new File(ParameterUtil.getKettlePath() +"/"+ParameterUtil.getKettleName());
         if(!file.exists()){
            file.mkdir();
         }
         //资源库元对象
-        KettleFileRepositoryMeta fileRepositoryMeta = new KettleFileRepositoryMeta(KETTLE_ID, KETTLE_NAME, KETTLE_DESCRIPTION, KETTLE_PATH+"/"+KETTLE_NAME);
+        KettleFileRepositoryMeta fileRepositoryMeta = new KettleFileRepositoryMeta(ParameterUtil.getKettleId(), ParameterUtil.getKettleName(), ParameterUtil.getKettleDescription(), ParameterUtil.getKettlePath()+"/"+ParameterUtil.getKettleName());
         // 文件形式的资源库
         KettleFileRepository repo = new KettleFileRepository();
         repo.init(fileRepositoryMeta);
         //连接到资源库
         repo.connect("", "");//默认的连接资源库的用户名和密码
         if (repo.isConnected()) {
-            msg = "kettle文件库资源库【" + KETTLE_NAME + "】连接成功";
+            msg = "kettle文件库资源库【" + ParameterUtil.getKettleName() + "】连接成功";
             logger.info(msg);
             return repo;
         } else {
-            msg = "kettle文件库资源库【" + KETTLE_NAME + "】连接失败";
+            msg = "kettle文件库资源库【" + ParameterUtil.getKettleName() + "】连接失败";
             logger.error(msg);
             throw new KettleException(msg);
         }
@@ -130,12 +86,12 @@ public class DataUpgrade {
         //修改文件资源库中新老数据源配置
         editDataSource();
         IRepositoryImporter importer = repository.getImporter();
-        String[] s = {KETTLE_FILENAME};
-        importer.importAll(importer, KETTLE_PATH, s, repository.findDirectory("/"), true, true, "初始化资源库");
+        String[] s = {ParameterUtil.getKettleFilename()};
+        importer.importAll(importer, ParameterUtil.getKettlePath(), s, repository.findDirectory("/"), true, true, "初始化资源库");
     }
 
     private void editDataSource() throws DocumentException {
-        File file = new File(KETTLE_PATH + '/' + KETTLE_FILENAME);
+        File file = new File(ParameterUtil.getKettlePath() + '/' + ParameterUtil.getKettleFilename());
         Document document = new SAXReader().read(file);
         List<Element> transformations = document.getRootElement().element("transformations").elements("transformation");
         for (Element transformation : transformations) {
@@ -179,17 +135,17 @@ public class DataUpgrade {
         List<Element> connections = element.elements("connection");
         for (Element con : connections) {
             if ("oldDataSource".equals(con.elementText("name"))) {
-                con.element("server").setText(OLDDATASOURCE_SERVER);
-                con.element("database").setText(OLDDATASOURCE_DATABASE);
-                con.element("port").setText(OLDDATASOURCE_PORT);
-                con.element("username").setText(OLDDATASOURCE_USERNAME);
-                con.element("password").setText(OLDDATASOURCE_PASSWORD);
+                con.element("server").setText(ParameterUtil.getOlddatasourceServer());
+                con.element("database").setText(ParameterUtil.getOlddatasourceDatabase());
+                con.element("port").setText(ParameterUtil.getOlddatasourcePort());
+                con.element("username").setText(ParameterUtil.getOlddatasourceUsername());
+                con.element("password").setText(ParameterUtil.getOlddatasourcePassword());
             } else if ("newDataSource".equals(con.elementText("name"))) {
-                con.element("server").setText(NEWDATASOURCE_SERVER);
-                con.element("database").setText(NEWDATASOURCE_DATABASE);
-                con.element("port").setText(NEWDATASOURCE_PORT);
-                con.element("username").setText(NEWDATASOURCE_USERNAME);
-                con.element("password").setText(NEWDATASOURCE_PASSWORD);
+                con.element("server").setText(ParameterUtil.getNewdatasourceServer());
+                con.element("database").setText(ParameterUtil.getNewdatasourceDatabase());
+                con.element("port").setText(ParameterUtil.getNewdatasourcePort());
+                con.element("username").setText(ParameterUtil.getNewdatasourceUsername());
+                con.element("password").setText(ParameterUtil.getNewdatasourcePassword());
             }
         }
     }
@@ -213,15 +169,99 @@ public class DataUpgrade {
      * @param repo
      */
     private void runJob(KettleFileRepository repo) throws KettleException {
-        System.err.println(KETTLE_PATH);
-        JobMeta jobMeta = new JobMeta(KETTLE_PATH+'/'+ KETTLE_NAME+ '/' + "dataupdate.kjb", repo);
+        JobMeta jobMeta = new JobMeta(ParameterUtil.getKettlePath()+'/'+ ParameterUtil.getKettleName()+ '/' + "dataupdate.kjb", repo);
         Job job = new Job(repo, jobMeta);
+        Scheduler instance = ProgressSchedule.getInstance();
+        ProgressSchedule progressSchedule = new ProgressSchedule();
+        JobKey jobKey = new JobKey("dataupdate","kettle");
+        try {
+            progressSchedule.start(jobKey);
+        } catch (SchedulerException e) {
+            throw new KettleException("进度监控作业运行失败",e);
+        }
         job.start();
+        try {
+            Thread.sleep(8*1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         job.waitUntilFinished();
         if (job.getErrors() > 0) {
             throw new KettleException("执行作业失败!");
         }
+
+        try {
+            instance.deleteJob(jobKey);
+            instance.shutdown();
+        } catch (SchedulerException e) {
+            throw new KettleException("进度监控作业运行失败",e);
+        }
+        List<RowMetaAndData> rows = job.getResult().getRows();
+        updateStat(rows);
+
     }
 
+    /**
+     *  回归处理标识字段
+     * @param rows
+     */
+    private void updateStat(List<RowMetaAndData> rows) throws KettleException {
+        Connection conn = null;
+        PreparedStatement ps = null;
+        PreparedStatement psc = null;
+        ResultSet resultSet = null;
+        try{
+            try {
+                Class.forName(ParameterUtil.getOlddatasourceDriver());
+                conn = DriverManager.getConnection(ParameterUtil.getOlddatasourceUrl(), ParameterUtil.getOlddatasourceUsername(), ParameterUtil.getOlddatasourcePassword());
+
+                boolean autoCommit = conn.getAutoCommit();
+                conn.setAutoCommit(false);
+
+                String columnSql = "select  col.column_name as column_name from user_constraints con,user_cons_columns col where con.constraint_name=col.constraint_name and con.constraint_type='P' and col.table_name=upper(?)";
+                String table_name = rows.get(0).getString(1,"");
+                psc = conn.prepareStatement(columnSql);
+                psc.setString(1,table_name);
+                resultSet = psc.executeQuery();
+                String column_name = null;
+                if(resultSet.next())
+                    column_name = resultSet.getString("column_name");
+                else{
+                    return;
+                }
+                String sql = "update "+table_name.toUpperCase()+" set dataUpgradeStat = 1 where "+column_name+" = ?";
+                ps = conn.prepareStatement(sql);
+                rows.remove(0);
+                String column_value = "";
+                for (RowMetaAndData row : rows){
+                    column_value = row.getString(column_name,"");
+                    ps.setString(1,column_value);
+                    ps.addBatch();
+                }
+                ps.executeBatch();
+                conn.commit();
+                conn.setAutoCommit(autoCommit);
+            } catch (ClassNotFoundException e) {
+                conn.rollback();
+                throw new KettleException("回归处理标识字段失败");
+            } catch (SQLException e) {
+                conn.rollback();
+                e.printStackTrace();
+                throw new KettleException("回归处理标识字段失败",e);
+            } finally {
+                if (ps != null) {
+                    ps.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            }
+        }catch (SQLException e){
+            throw new KettleException("回归处理标识字段失败");
+        }
+
+
+
+    }
 
 }
