@@ -14,14 +14,14 @@ oldDataSource:
   # 数据源地址
   url: jdbc:oracle:thin:@10.10.22.208:1521/orcl
   # 数据源用户名
-  un: PHISDXH
+  un: PHISSZ
   # 数据源密码
-  pw: PHISDXH
+  pw: PHISSZ
   # 数据源使用驱动
   dn: oracle.jdbc.driver.OracleDriver
 # 目标库数据源配置
 newDataSource:
   url: jdbc:oracle:thin:@10.10.22.208:1521/orcl
-  un: PHISKF
-  pw: PHISKF
+  un: PHISDXH
+  pw: PHISDXH
   dn: oracle.jdbc.driver.OracleDriver

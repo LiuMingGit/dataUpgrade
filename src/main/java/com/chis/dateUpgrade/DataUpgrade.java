@@ -6,8 +6,7 @@ package com.chis.dateUpgrade;
  * 邮箱：liuming@bsoft.com.cn
  */
 
-import com.chis.pojo.Progress;
-import com.chis.quartz.ProgressSchedule;
+
 import com.chis.util.ParameterUtil;
 import org.apache.log4j.Logger;
 import org.dom4j.Document;
@@ -24,9 +23,7 @@ import org.pentaho.di.job.JobMeta;
 import org.pentaho.di.repository.IRepositoryImporter;
 import org.pentaho.di.repository.filerep.KettleFileRepository;
 import org.pentaho.di.repository.filerep.KettleFileRepositoryMeta;
-import org.quartz.JobKey;
-import org.quartz.Scheduler;
-import org.quartz.SchedulerException;
+
 
 import java.io.*;
 import java.sql.*;
@@ -91,8 +88,8 @@ public class DataUpgrade {
     }
 
     private void editDataSource() throws DocumentException {
-        File file = new File(ParameterUtil.getKettlePath() + '/' + ParameterUtil.getKettleFilename());
-        Document document = new SAXReader().read(file);
+        File file = new File("src/main/resources/" + ParameterUtil.getKettleFilename());
+        Document document = new SAXReader().read(new File("src/main/resources/" + ParameterUtil.getKettleFilename()));
         List<Element> transformations = document.getRootElement().element("transformations").elements("transformation");
         for (Element transformation : transformations) {
             //修改kettle读取配置文件位置
@@ -112,7 +109,7 @@ public class DataUpgrade {
         }
         FileOutputStream fileOutputStream = null;
         try {
-            fileOutputStream = new FileOutputStream(file);
+            fileOutputStream = new FileOutputStream(new File("src/main/resources/" + ParameterUtil.getKettleFilename()));
         } catch (FileNotFoundException e) {
             throw new IllegalStateException("文件重写出失败");
         }
@@ -121,7 +118,10 @@ public class DataUpgrade {
         try {
             writer = new XMLWriter(fileOutputStream);
             writer.write(document);
+            writer.flush();
             writer.close();
+            fileOutputStream.flush();
+            fileOutputStream.close();
         } catch (UnsupportedEncodingException e) {
             throw new IllegalStateException("文件重写出失败");
         } catch (IOException e) {
@@ -171,34 +171,26 @@ public class DataUpgrade {
     private void runJob(KettleFileRepository repo) throws KettleException {
         JobMeta jobMeta = new JobMeta(ParameterUtil.getKettlePath()+'/'+ ParameterUtil.getKettleName()+ '/' + "dataupdate.kjb", repo);
         Job job = new Job(repo, jobMeta);
-        Scheduler instance = ProgressSchedule.getInstance();
+        /*Scheduler instance = ProgressSchedule.getInstance();
         ProgressSchedule progressSchedule = new ProgressSchedule();
         JobKey jobKey = new JobKey("dataupdate","kettle");
         try {
             progressSchedule.start(jobKey);
         } catch (SchedulerException e) {
             throw new KettleException("进度监控作业运行失败",e);
-        }
+        }*/
         job.start();
-        try {
-            Thread.sleep(8*1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         job.waitUntilFinished();
         if (job.getErrors() > 0) {
             throw new KettleException("执行作业失败!");
         }
 
-        try {
+       /* try {
             instance.deleteJob(jobKey);
             instance.shutdown();
         } catch (SchedulerException e) {
             throw new KettleException("进度监控作业运行失败",e);
-        }
-        List<RowMetaAndData> rows = job.getResult().getRows();
-        updateStat(rows);
-
+        }*/
     }
 
     /**
@@ -239,6 +231,7 @@ public class DataUpgrade {
                     ps.addBatch();
                 }
                 ps.executeBatch();
+                ps.executeUpdate();
                 conn.commit();
                 conn.setAutoCommit(autoCommit);
             } catch (ClassNotFoundException e) {

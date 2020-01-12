@@ -38,6 +38,7 @@ public class ParameterUtil {
         YamlReader reader = YamlReader.getInstance();
         HashMap filerepository = (HashMap) reader.getValuebyKey("kettle", "filerepository");
         KETTLE_PATH = DataUpgrade.class.getClassLoader().getResource("").getPath();
+        System.err.println(KETTLE_PATH.substring(0,KETTLE_PATH.lastIndexOf("/")));
         KETTLE_ID = (String) filerepository.get("id");
         KETTLE_NAME = (String) filerepository.get("name");
         KETTLE_DESCRIPTION = (String) filerepository.get("description");
