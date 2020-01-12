@@ -19,3 +19,5 @@
 * 如图示：是根据dataUpdate.xml文件导入资源库生成的kettle脚本文件
     1. ![dataUpdate](http://wx4.sinaimg.cn/mw690/0060lm7Tly1g0qpz5uqezj30og0gswgp.jpg "kettle脚本文件")
 * 注：dataUpdate.xml文件是kettle脚本文件，用来导入资源库。请不要进行修改。
+* 注2：本工具目前仅支持oracle-oracle之间的数据转换，且要求表名要一致，内部字段源表不能多于目标表。
+* 注3：暂时不支持断点续传
