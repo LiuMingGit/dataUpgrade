@@ -34,7 +34,7 @@ comment on column dic_dic.dic_name is '字典名';
 comment on column dic_dic.old_value is '老版本值';
 comment on column dic_dic.new_value is '新版本值';
 
---创建测试表1
+--创建测试表1--目标库
 create table tast_table(
   name varchar2(200),
   sexCode varchar2(200)
@@ -42,14 +42,14 @@ create table tast_table(
 comment on table tast_table is '测试表';
 comment on column tast_table.name is '姓名';
 comment on column tast_table.sexCode is '性别';
---创建测试表另一个库
-create table phiskf.tast_table(
+--创建测试表另一个库 源库
+create table tast_table(
   name varchar2(200),
   sexCode varchar2(200)
 );
-comment on table phiskf.tast_table is '对拉库测试表';
-comment on column phiskf.tast_table.name is '姓名';
-comment on column phiskf.tast_table.sexCode is '性别';
+comment on table tast_table is '对拉库测试表';
+comment on column tast_table.name is '姓名';
+comment on column tast_table.sexCode is '性别';
 
 insert into table_field (id, table_name, field_name, dic_name)
 values (1,'tast_table','sexCode','sexCode');
@@ -57,6 +57,7 @@ insert into dic_dic (id, dic_name, old_value, new_value)
 values (1,'sexCode','1','男');
 insert into dic_dic (id, dic_name, old_value, new_value)
 values (2,'sexCode','2','女');
+--插入源库数据
 insert into tast_table (name, sexCode)
 values ('丁海锋','2');
 delete DATA_EXTRACTION;
